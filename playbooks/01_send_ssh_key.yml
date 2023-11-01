@@ -1,0 +1,11 @@
+---
+
+- name: Gather facts
+  hosts: server
+  tasks:
+
+    - name: Send SSH Key
+      ansible.posix.authorized_key:
+        user: vova
+        state: present
+        key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"

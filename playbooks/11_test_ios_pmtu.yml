@@ -1,0 +1,15 @@
+---
+
+- name: Test ios_pmtu
+  hosts: router
+  tasks:
+
+    - name: ios_pmtu
+      cisco.ios.ios_pmtu:
+        dest: 10.2.3.3
+      register: ios_pmtu_result
+
+    - name:
+      debug:
+        msg: "{{ ios_pmtu_result }}"
+

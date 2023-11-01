@@ -1,0 +1,11 @@
+---
+
+- name: Gather facts
+  hosts: server
+  gather_facts: True
+  tasks:
+
+    - name: facts
+      debug:
+        msg: "{{ ansible_facts }}"
+

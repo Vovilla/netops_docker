@@ -1,0 +1,21 @@
+version: "3.11"
+
+services:
+  ansible:
+    image: netops:latest
+    container_name: ansible
+    tty: true
+    stdin_open: true
+    environment:
+      - ANSIBLE_INVENTORY=/ansible/hosts
+      - ANSIBLE_CONFIG=/ansible/ansible.cfg
+    volumes:
+      - .:/ansible
+      - ./.ssh:/root/.ssh
+      # - ./hosts:/etc/ansible/hosts
+      # - ./ansible.cfg:/etc/ansible/ansible.cfg
+    extra_hosts:
+      - server1:192.168.56.111
+      - server2:192.168.56.222
+    command: ["bash"]
+    

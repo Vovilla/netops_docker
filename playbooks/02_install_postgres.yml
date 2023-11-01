@@ -1,0 +1,25 @@
+---
+
+- name: Gather facts
+  hosts: server
+  tasks:
+
+    - name: Create the file repository configuration
+      ansible.builtin.shell: echo "deb https://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list
+      become: true
+
+    - name: Import the repository signing key
+      ansible.builtin.shell: wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+      become: true
+
+    - name: Update the package lists
+      ansible.builtin.apt:
+        update_cache: yes
+      become: true
+
+    - name: Install the latest version of PostgreSQL
+      ansible.builtin.apt:
+        name: postgresql
+      become: true
+
+

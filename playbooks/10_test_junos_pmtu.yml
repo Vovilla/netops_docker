@@ -1,0 +1,15 @@
+---
+
+- name: Test junos_pmtu
+  hosts: router
+  tasks:
+
+    - name: junos_pmtu
+      junipernetworks.junos.junos_pmtu:
+        dest: 10.2.3.2
+      register: junos_pmtu_result
+
+    - name:
+      debug:
+        msg: "{{ junos_pmtu_result }}"
+
