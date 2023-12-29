@@ -1,2 +1,6 @@
 .ssh/*
 .vscode/*
+.vault_pass
+.hosts
+group_vars/router/vault.yml
+hosts

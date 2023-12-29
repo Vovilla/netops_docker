@@ -1,0 +1,15 @@
+---
+
+- name: show ip ospf neighbor
+  hosts: router
+  tasks:
+
+    - name: show ip ospf neighbor
+      cisco.ios.ios_command:
+        commands: show ip ospf neighbor
+      register: result
+
+    - name:
+      debug:
+        msg: "{{ result }}"
+

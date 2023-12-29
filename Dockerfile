@@ -8,7 +8,7 @@ ENV ANSIBLE_VERSION ${ANSIBLE_VERSION}
 ENV ANSIBLE_LINT ${ANSIBLE_LINT}
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-    apt-get install -y gnupg2 python3-pip sshpass git openssh-client && \
+    apt-get install -y vim gnupg2 python3-pip sshpass git openssh-client && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
 
