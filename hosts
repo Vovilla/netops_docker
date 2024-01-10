@@ -1,0 +1,37 @@
+[all]
+21146-RDP           ansible_host=10.31.22.163
+21146-Eltex         ansible_host=10.31.22.164
+21144-RDP           ansible_host=10.31.22.155
+21144-Eltex         ansible_host=10.31.22.156
+Ivanovo-RDP         ansible_host=10.31.6.120
+Ivanovo-Eltex       ansible_host=10.31.6.121
+Jaroslavl-RDP       ansible_host=10.31.18.121
+Jaroslavl-Eltex     ansible_host=10.31.18.122
+Vladimir-RDP        ansible_host=10.31.4.136
+Vladimir-Eltex      ansible_host=10.31.4.137
+Voronezh-RDP        ansible_host=10.31.5.136
+Voronezh-Eltex      ansible_host=10.31.5.137
+
+[router]
+21146-RDP
+21144-RDP
+Ivanovo-RDP
+Jaroslavl-RDP
+Vladimir-RDP
+Voronezh-RDP
+
+[switch]
+21146-Eltex
+21144-Eltex
+Ivanovo-Eltex
+Jaroslavl-Eltex
+Vladimir-Eltex
+Voronezh-Eltex
+
+[switch:vars]
+ansible_connection=ansible.netcommon.network_cli
+ansible_user=
+ansible_password=
+ansible_become=true
+ansible_become_method=enable
+ansible_become_password=

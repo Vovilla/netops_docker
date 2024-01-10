@@ -14,15 +14,15 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
 
 RUN python3 -m pip install --upgrade pip cffi && \  
     pip3 install ansible-core==${ANSIBLE_CORE_VERSION} && \
-    pip3 install ansible==${ANSIBLE_VERSION} ansible-lint==${ANSIBLE_LINT} && \
     pip3 install ansible-pylibssh
 
 COPY ./ansible_collections /tmp
+RUN ansible-galaxy collection install cisco.iosxr
 RUN ansible-galaxy collection install --force /tmp/junipernetworks.junos
 RUN ansible-galaxy collection install --force /tmp/cisco.ios
 
-RUN mkdir /ansible && \
-    mkdir -p /etc/ansible && \
+
+RUN mkdir -p /etc/ansible && \
     echo 'localhost' > /etc/ansible/hosts
 
 WORKDIR /ansible
